@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f2ea">
+<meta name="description" content="東京自駕遊 2026.10.14–22 行程摘要 · 每日一覽">
+<title>行程摘要｜東京自駕遊 10.14–10.22</title>
+<style>
+:root{
+  --cream:#f7f2ea;--paper:#fffdf8;--ink:#2a2622;--muted:#6b635a;
+  --gold:#b8956c;--gold-soft:#e8d9c4;--maple:#c4784a;--sage:#5a7a6e;
+  --sky:#3d6b7a;--sky-soft:#e4eef1;--line:#e0d6c8;--ok:#3d6b4a;
+  --shadow:0 4px 20px rgba(42,38,34,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{
+  font:17px/1.65 -apple-system,"PingFang TC","Noto Sans TC","Hiragino Sans GB",sans-serif;
+  color:var(--ink);background:var(--cream);padding-bottom:48px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--sky);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* —— Cover —— */
+.cover{
+  position:relative;overflow:hidden;
+  padding:48px 20px 40px;text-align:center;
+  background:
+    linear-gradient(165deg,#f3ebe0 0%,#f7f2ea 45%,#eef3f0 100%);
+  border-bottom:1px solid var(--line);
+}
+.cover::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%,rgba(184,149,108,.18),transparent 60%),
+    radial-gradient(ellipse 40% 40% at 90% 80%,rgba(90,122,110,.08),transparent);
+  pointer-events:none;
+}
+.cover-inner{position:relative;max-width:520px;margin:0 auto}
+.badge{
+  display:inline-block;font-size:11px;letter-spacing:.14em;font-weight:600;
+  color:var(--maple);background:rgba(196,120,74,.12);
+  padding:6px 14px;border-radius:999px;margin-bottom:18px;
+}
+.cover h1{
+  font-size:clamp(26px,7vw,36px);font-weight:700;letter-spacing:.02em;
+  line-height:1.25;color:var(--ink);margin-bottom:10px;
+}
+.cover .dates{
+  font-size:15px;color:var(--muted);font-weight:500;margin-bottom:6px;
+}
+.cover .tagline{font-size:14px;color:var(--gold);font-weight:600;letter-spacing:.04em}
+.cover-meta{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  margin-top:22px;
+}
+.pill{
+  font-size:12px;font-weight:600;color:var(--muted);
+  background:var(--paper);border:1px solid var(--line);
+  padding:6px 12px;border-radius:999px;
+}
+.back-link{
+  display:inline-flex;align-items:center;gap:6px;margin-top:20px;
+  min-height:40px;padding:8px 16px;font:600 13px sans-serif;
+  color:var(--gold);background:rgba(184,149,108,.12);
+  border:1.5px solid var(--gold-soft);border-radius:10px;
+}
+.back-link:hover{background:rgba(184,149,108,.2);text-decoration:none}
+
+/* —— Sticky day chips —— */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,242,234,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 2px 12px rgba(42,38,34,.04);
+  padding:10px 0;
+}
+.ns{display:flex;gap:6px;overflow-x:auto;padding:0 12px;-webkit-overflow-scrolling:touch}
+.ns::-webkit-scrollbar{display:none}
+.cp{
+  flex:0 0 auto;min-width:52px;min-height:46px;padding:6px 10px;
+  border-radius:12px;border:1.5px solid var(--line);background:var(--paper);
+  color:var(--muted);font:600 12px/1.2 sans-serif;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-decoration:none;transition:background .15s,border-color .15s,color .15s;
+}
+.cp span{font-size:10px;font-weight:500;opacity:.85;margin-top:1px}
+.cp.on,.cp:hover{background:#f0e6d6;border-color:var(--gold);color:var(--maple);text-decoration:none}
+
+/* —— Layout —— */
+.wrap{max-width:640px;margin:0 auto;padding:20px 14px 8px}
+
+/* Overview strip */
+.overview{
+  background:var(--paper);border:1px solid var(--line);border-radius:16px;
+  padding:18px 16px;margin-bottom:28px;box-shadow:var(--shadow);
+}
+.overview h2{
+  font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin-bottom:12px;
+}
+.route-flow{
+  display:flex;flex-wrap:wrap;align-items:center;gap:6px 4px;
+  font-size:13px;line-height:1.5;color:var(--ink);
+}
+.route-flow .seg{
+  background:var(--cream);border:1px solid var(--line);
+  padding:4px 10px;border-radius:8px;font-weight:600;font-size:12px;
+}
+.route-flow .arr{color:var(--gold);font-weight:700;padding:0 2px}
+.overview .note{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.5}
+
+/* Day card */
+.day{
+  margin-bottom:28px;scroll-margin-top:72px;
+  background:var(--paper);border:1px solid var(--line);
+  border-radius:20px;overflow:hidden;box-shadow:var(--shadow);
+}
+.day-cover{
+  padding:22px 18px 18px;
+  background:linear-gradient(135deg,#f5ebe0 0%,#f0f4f1 100%);
+  border-bottom:1px solid var(--line);
+  position:relative;
+}
+.day-cover.d-fuji{background:linear-gradient(135deg,#efe6d8,#e8f0ee)}
+.day-cover.d-outlet{background:linear-gradient(135deg,#f0ebe3,#ebe8f0)}
+.day-cover.d-hakone{background:linear-gradient(135deg,#e8efe8,#f3ebe0)}
+.day-cover.d-kamakura{background:linear-gradient(135deg,#e8eef3,#f0ebe3)}
+.day-cover.d-tokyo{background:linear-gradient(135deg,#eee8e4,#eaeef2)}
+.day-cover.d-fly{background:linear-gradient(135deg,#eae6e0,#e8eef0)}
+
+.day-num{
+  font-size:11px;letter-spacing:.16em;font-weight:700;
+  color:var(--maple);margin-bottom:6px;
+}
+.day-date{
+  font-size:clamp(22px,5.5vw,28px);font-weight:700;
+  color:var(--ink);line-height:1.2;
+}
+.day-date .wk{
+  font-size:14px;font-weight:600;color:var(--gold);
+  margin-left:8px;letter-spacing:.02em;
+}
+.day-title{
+  display:block;font-size:15px;color:var(--muted);
+  font-weight:500;margin-top:6px;line-height:1.4;
+}
+.day-body{padding:16px 18px 20px}
+
+/* Soft info blocks */
+.block{
+  background:var(--cream);border:1px solid var(--line);
+  border-radius:12px;padding:12px 14px;margin-bottom:10px;
+}
+.block:last-child{margin-bottom:0}
+.block .lbl{
+  font-size:11px;font-weight:700;letter-spacing:.08em;
+  color:var(--gold);margin-bottom:4px;
+}
+.block .val{font-size:15px;font-weight:600;color:var(--ink);line-height:1.4}
+.block .sub{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.45}
+
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+@media(max-width:420px){.row2{grid-template-columns:1fr}}
+
+/* Highlights as numbered timeline */
+.hl{margin:4px 0 0}
+.hl-item{
+  display:flex;gap:12px;padding:8px 0;
+  border-bottom:1px dashed var(--line);
+}
+.hl-item:last-child{border-bottom:none;padding-bottom:0}
+.hl-n{
+  flex:0 0 28px;height:28px;border-radius:50%;
+  background:rgba(184,149,108,.18);color:var(--maple);
+  font:700 12px/28px sans-serif;text-align:center;
+}
+.hl-t{flex:1;font-size:14px;line-height:1.45;padding-top:4px}
+.hl-t b{font-weight:700;color:var(--ink)}
+.hl-t .when{display:block;font-size:12px;color:var(--gold);font-weight:600;margin-bottom:2px}
+
+.wx-mini{
+  display:inline-flex;flex-wrap:wrap;gap:6px 10px;align-items:center;
+  margin-top:12px;padding:8px 12px;
+  background:var(--sky-soft);border:1px solid rgba(61,107,122,.25);
+  border-radius:10px;font-size:13px;
+}
+.wx-mini .t{font-weight:700;color:var(--ink)}
+.wx-mini .c{font-weight:600;color:var(--sky)}
+
+.tag-ok{
+  display:inline-block;font-size:11px;font-weight:700;
+  background:#e4f0e7;color:var(--ok);padding:2px 8px;border-radius:6px;
+  margin-top:6px;
+}
+
+/* Footer sections */
+.sec-h{
+  font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin:32px 0 12px;
+  padding-bottom:8px;border-bottom:2px solid var(--gold-soft);
+}
+.tips{
+  background:var(--paper);border:1px solid var(--line);border-radius:16px;
+  padding:16px 18px;box-shadow:var(--shadow);font-size:14px;line-height:1.55;
+}
+.tips ul{padding-left:1.15em;margin:0}
+.tips li{margin:6px 0;color:var(--ink)}
+.tips a{font-weight:600}
+
+.ft{
+  text-align:center;padding:28px 16px 8px;color:var(--muted);font-size:12px;
+}
+.ft a{font-weight:600}
+
+.topbtn{
+  position:fixed;right:14px;bottom:20px;z-index:60;
+  width:48px;height:48px;border-radius:50%;
+  border:2px solid var(--gold);background:var(--paper);color:var(--maple);
+  font:700 20px/1 sans-serif;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(42,38,34,.16);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translateY(8px);transition:opacity .2s,visibility .2s,transform .2s;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+}
+.topbtn.show{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.topbtn:hover,.topbtn:focus-visible{background:#f0e6d6;outline:none}
+
+@media print{
+  .nav,.topbtn,.back-link{display:none!important}
+  .cover{padding:24px 0;background:#fff!important}
+  .day{break-inside:avoid;box-shadow:none;border:1px solid #ccc}
+  body{background:#fff;font-size:12pt}
+  .day-cover{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="cover-inner">
+    <div class="badge">TRAVEL ITINERARY · 2026</div>
+    <h1>東京自駕遊</h1>
+    <p class="dates">2026年10月14日 — 10月22日</p>
+    <p class="tagline">FUJI · HAKONE · KAMAKURA · TOKYO</p>
+    <div class="cover-meta">
+      <span class="pill">四人同行</span>
+      <span class="pill">9 天</span>
+      <span class="pill">繁體中文</span>
+    </div>
+    <a class="back-link" href="index.html">← 完整實用版（地圖／Mapcode／駕駛）</a>
+  </div>
+</header>
+
+<nav class="nav" aria-label="每日導覽">
+  <div class="ns" id="chips">
+    <a class="cp on" href="#d14">14<span>三</span></a>
+    <a class="cp" href="#d15">15<span>四</span></a>
+    <a class="cp" href="#d16">16<span>五</span></a>
+    <a class="cp" href="#d17">17<span>六</span></a>
+    <a class="cp" href="#d18">18<span>日</span></a>
+    <a class="cp" href="#d19">19<span>一</span></a>
+    <a class="cp" href="#d20">20<span>二</span></a>
+    <a class="cp" href="#d21">21<span>三</span></a>
+    <a class="cp" href="#d22">22<span>四</span></a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="overview" aria-label="行程總覽">
+    <h2>Trip Overview</h2>
+    <div class="route-flow">
+      <span class="seg">成田取車</span><span class="arr">→</span>
+      <span class="seg">山中湖</span><span class="arr">→</span>
+      <span class="seg">三湖</span><span class="arr">→</span>
+      <span class="seg">御殿場</span><span class="arr">→</span>
+      <span class="seg">箱根</span><span class="arr">→</span>
+      <span class="seg">鎌倉</span><span class="arr">→</span>
+      <span class="seg">新宿</span><span class="arr">→</span>
+      <span class="seg">回港</span>
+    </div>
+    <p class="note">這是給同行成人的每日一覽：去哪、住哪、今日重點。地圖、車程、Mapcode、租車細節請看<a href="index.html">完整實用版</a>。</p>
+  </section>
+
+  <!-- Day 14 -->
+  <article class="day" id="d14">
+    <div class="day-cover d-fuji">
+      <div class="day-num">DAY 01</div>
+      <div class="day-date">10月14日<span class="wk">星期三</span></div>
+      <span class="day-title">成田抵達 · 取車前往山中湖</span>
+      <div class="wx-mini"><span class="t">21°／14°</span><span class="c">雨</span></div>
+    </div>
+    <div class="day-body">
+      <div class="row2">
+        <div class="block">
+          <div class="lbl">地區</div>
+          <div class="val">成田 → 山中湖</div>
+          <div class="sub">富士五湖 · 山中湖畔</div>
+        </div>
+        <div class="block">
+          <div class="lbl">住宿</div>
+          <div class="val">Shizuku</div>
+          <div class="sub">山中172 · 住兩晚</div>
+          <span class="tag-ok">包停車場</span>
+        </div>
+      </div>
+      <div class="block">
+        <div class="lbl">今日重點</div>
+        <div class="hl">
+          <div class="hl-item"><span class="hl-n">1</span><div class="hl-t"><span class="when">上午</span><b>UO848</b> 香港 09:15 → 成田 14:45</div></div>
+          <div class="hl-item"><span class="hl-n">2</span><div class="hl-t"><span class="when">16:00</span>日產成田取車，開車往山中湖（約 2–2.5 小時）</div></div>
+          <div class="hl-item"><span class="hl-n">3</span><div class="hl-t"><span class="when">傍晚</span>入住 Shizuku，休息適應</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Day 15 -->
+  <article class="day" id="d15">
+    <div class="day-cover d-fuji">
+      <div class="day-num">DAY 02</div>
+      <div class="day-date">10月15日<span class="wk">星期四</span></div>
+      <span class="day-title">三湖慢遊：山中湖 · 忍野 · 河口湖</span>
+      <div class="wx-mini"><span class="t">15°／11°</span><span class="c">毛毛雨</span></div>
+    </div>
+    <div class="day-body">
+      <div class="row2">
+        <div class="block">
+          <div class="lbl">地區</div>
+          <div class="val">富士三湖</div>
+          <div class="sub">山中湖 · 忍野 · 河口湖短停</div>
+        </div>
+        <div class="block">
+          <div class="lbl">住宿</div>
+          <div class="val">Shizuku</div>
+          <div class="sub">續住 · 山中湖</div>
+          <span class="tag-ok">包停車場</span>
+        </div>
+      </div>
+      <div class="block">
+        <div class="lbl">今日重點</div>
+        <div class="hl">
+          <div class="hl-item"><span class="hl-n">1</span><div class="hl-t"><span class="when">上午</span>山中湖湖畔／長池親水公園短散步</div></div>
+          <div class="hl-item"><span class="hl-n">2</span><div class="hl-t"><span class="when">必去</span><b>THE PARK</b> 班戟＋富士山景（先致電確認）</div></div>
+          <div class="hl-item"><span class="hl-n">3</span><div class="hl-t"><span class="when">下午</span><b>忍野八海</b>短走 2–3 池即可（平路）</div></div>
+          <div class="hl-item"><span class="hl-n">4</span><div class="hl-t"><span class="when">傍晚前</span>河口湖短停觀景約 1 小時（不入遊樂園）</div></div>
+          <div class="hl-item"><span class="hl-n">5</span><div class="hl-t">晚餐可選 <b>Nagomi Yamanakako</b>（已訂位選項）</div></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="lbl">早餐建議</div>
+        <div class="sub">ZEIT BAKERY · AMAAMA · やどりぎ cafe（可改）</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Day 16 -->
+  <article class="day" id="d16">
+    <div class="day-cover d-outlet">
+      <div class="day-num">DAY 03</div>
+      <div class="day-date">10月16日<span class="wk">星期五</span></div>
+      <span class="day-title">御殿場 Outlet · Hotel Clad</span>
+      <div class="wx-mini"><span class="t">23°／10°</span><span class="c">陰／多雲</span></div>
+    </div>
+    <div class="day-body">
+      <div class="row2">
+        <div class="block">
+          <div class="lbl">地區</div>
+          <div class="val">御殿場</div>
+          <div class="sub">Premium Outlets</div>
+        </div>
+        <div class="block">
+          <div class="lbl">住宿</div>
+          <div class="val">Hotel Clad</div>
+          <div class="sub">深沢2839-1</div>
+          <span class="tag-ok">包泊車 · 包早餐</span>
+        </div>
+      </div>
+      <div class="block">
+        <div class="lbl">今日重點</div>
+        <div class="hl">
+          <div class="hl-item"><span class="hl-n">1</span><div class="hl-t">山中湖出發 → 御殿場 Outlet（約 30–40 分）</div></div>
+          <div class="hl-item"><span class="hl-n">2</span><div class="hl-t">Outlet 購物／午餐</div></div>
+          <div class="hl-item"><span class="hl-n">3</span><div class="hl-t">入住 <b>Hotel Clad</b>（Outlet 旁，約 5 分車程）</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Day 17 -->
+  <article class="day" id="d17">
+    <div class="day-cover d-hakone">
+      <div class="day-num">DAY 04</div>
+      <div class="day-date">10月17日<span class="wk">星期六</span></div>
+      <span class="day-title">箱根仙石原</span>
+      <div class="wx-mini"><span class="t">18°／12°</span><span class="c">陰／多雲</span></div>
+    </div>
+    <div class="day-body">
+      <div class="row2">
+        <div class="block">
+          <div class="lbl">地區</div>
+          <div class="val">箱根 · 仙石原</div>
+          <div class="sub">溫泉鄉慢遊</div>
+        </div>
+        <div class="block">
+          <div class="lbl">住宿</div>
+          <div class="val">Blisstia</div>
+          <div class="sub">仙石原29-1</div>
+          <span class="tag-ok">包泊車 · 包早餐</span>
+        </div>
+      </div>
+      <div class="block">
+        <div class="lbl">今日重點</div>
+        <div class="hl">
+          <div class="hl-item"><span class="hl-n">1</span><div class="hl-t">Clad 退房 → 仙石原 Blisstia（約 20–30 分）</div></div>
+          <div class="hl-item"><span class="hl-n">2</span><div class="hl-t">箱根仙石原休息／温泉氛圍，節奏放慢</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Day 18 -->
+  <article class="day" id="d18">
+    <div class="day-cover d-kamakura">
+      <div class="day-num">DAY 05</div>
+      <div class="day-date">10月18日<span class="wk">星期日</span></div>
+      <span class="day-title">箱根 → 鎌倉全日</span>
+      <div class="wx-mini"><span class="t">22°／16°</span><span class="c">多雲／偶有毛毛雨</span></div>
+    </div>
+    <div class="day-body">
+      <div class="row2">
+        <div class="block">
+          <div class="lbl">地區</div>
+          <div class="val">鎌倉</div>
+          <div class="sub">步行＋江ノ電為主</div>
+        </div>
+        <div class="block">
+          <div class="lbl">住宿</div>
+          <div class="val">JR東日本大都會大飯店鎌倉</div>
+          <div class="sub">小町1-8-1 · 站東口約 2 分</div>
+          <span class="tag-ok">可寄行李</span>
+        </div>
+      </div>
+      <div class="block">
+        <div class="lbl">今日重點</div>
+        <div class="hl">
+          <div class="hl-item"><span class="hl-n">1</span><div class="hl-t"><span class="when">上午</span>仙石原開車到鎌倉（約 1.5–2 小時）· 酒店先泊車寄行李</div></div>
+          <div class="hl-item"><span class="hl-n">2</span><div class="hl-t"><b>鶴岡八幡宮</b> → <b>小町通</b>午餐</div></div>
+          <div class="hl-item"><span class="hl-n">3</span><div class="hl-t">江ノ電「鎌倉高校前」平交道打卡</div></div>
+          <div class="hl-item"><span class="hl-n">4</span><div class="hl-t"><b>長谷寺</b> → <b>高德院大佛</b></div></div>
+          <div class="hl-item"><span class="hl-n">5</span><div class="hl-t"><span class="when">傍晚</span>返酒店正式 check-in · 站前晚餐</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Day 19 -->
+  <article class="day" id="d19">
+    <div class="day-cover d-kamakura">
+      <div class="day-num">DAY 06</div>
+      <div class="day-date">10月19日<span class="wk">星期一</span></div>
+      <span class="day-title">鎌倉半日 → 新宿還車</span>
+      <div class="wx-mini"><span class="t">26°／19°</span><span class="c">毛毛雨</span></div>
+    </div>
+    <div class="day-body">
+      <div class="row2">
+        <div class="block">
+          <div class="lbl">地區</div>
+          <div class="val">鎌倉 → 新宿</div>
+          <div class="sub">上午補景後入城</div>
+        </div>
+        <div class="block">
+          <div class="lbl">住宿</div>
+          <div class="val">Hotel Gracery Shinjuku</div>
+          <div class="sub">歌舞伎町1-19-1 · 住三晚</div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="lbl">今日重點</div>
+        <div class="hl">
+          <div class="hl-item"><span class="hl-n">1</span><div class="hl-t"><span class="when">上午</span>三揀一補景：鎌倉高校前／北鎌倉寺院／由比ヶ浜</div></div>
+          <div class="hl-item"><span class="hl-n">2</span><div class="hl-t"><span class="when">~11:30</span>退房出發入城（預留塞車）</div></div>
+          <div class="hl-item"><span class="hl-n">3</span><div class="hl-t">新宿還車（最晚 20:00）→ 入住 Gracery</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Day 20 -->
+  <article class="day" id="d20">
+    <div class="day-cover d-tokyo">
+      <div class="day-num">DAY 07</div>
+      <div class="day-date">10月20日<span class="wk">星期二</span></div>
+      <span class="day-title">東京（一）</span>
+      <div class="wx-mini"><span class="t">25°／19°</span><span class="c">毛毛雨</span></div>
+    </div>
+    <div class="day-body">
+      <div class="row2">
+        <div class="block">
+          <div class="lbl">地區</div>
+          <div class="val">新宿／東京</div>
+          <div class="sub">自由活動 · 無開車</div>
+        </div>
+        <div class="block">
+          <div class="lbl">住宿</div>
+          <div class="val">Hotel Gracery</div>
+          <div class="sub">續住</div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="lbl">今日重點</div>
+        <div class="hl">
+          <div class="hl-item"><span class="hl-n">1</span><div class="hl-t">購物／壽司／燒肉／牛舌／燒鳥 — 隨興安排</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Day 21 -->
+  <article class="day" id="d21">
+    <div class="day-cover d-tokyo">
+      <div class="day-num">DAY 08</div>
+      <div class="day-date">10月21日<span class="wk">星期三</span></div>
+      <span class="day-title">東京（二）</span>
+      <div class="wx-mini"><span class="t">19°／15°</span><span class="c">毛毛雨</span></div>
+    </div>
+    <div class="day-body">
+      <div class="row2">
+        <div class="block">
+          <div class="lbl">地區</div>
+          <div class="val">新宿／東京</div>
+          <div class="sub">自由活動 · 無開車</div>
+        </div>
+        <div class="block">
+          <div class="lbl">住宿</div>
+          <div class="val">Hotel Gracery</div>
+          <div class="sub">續住</div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="lbl">今日重點</div>
+        <div class="hl">
+          <div class="hl-item"><span class="hl-n">1</span><div class="hl-t">可去新宿御苑、伴手禮、補買</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Day 22 -->
+  <article class="day" id="d22">
+    <div class="day-cover d-fly">
+      <div class="day-num">DAY 09</div>
+      <div class="day-date">10月22日<span class="wk">星期四</span></div>
+      <span class="day-title">回程香港</span>
+      <div class="wx-mini"><span class="t">20°／14°</span><span class="c">毛毛雨</span></div>
+    </div>
+    <div class="day-body">
+      <div class="row2">
+        <div class="block">
+          <div class="lbl">地區</div>
+          <div class="val">新宿 → 成田</div>
+          <div class="sub">電車／巴士約 1–1.5 小時</div>
+        </div>
+        <div class="block">
+          <div class="lbl">航班</div>
+          <div class="val">UO871</div>
+          <div class="sub">成田 17:05 → 香港</div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="lbl">今日重點</div>
+        <div class="hl">
+          <div class="hl-item"><span class="hl-n">1</span><div class="hl-t">退房後前往成田機場</div></div>
+          <div class="hl-item"><span class="hl-n">2</span><div class="hl-t"><b>UO871</b> 起飛回港</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <h2 class="sec-h">Quick Notes</h2>
+  <div class="tips">
+    <ul>
+      <li>山區早晚偏涼，宜備薄外套（尤其 10/14–16）</li>
+      <li>每天 1–2 個重點即可，留休息時間（適合長者節奏）</li>
+      <li>10/18 鎌倉景點用步行＋江ノ電，車泊酒店</li>
+      <li>地圖、Mapcode、車程 ETA、日產租車 → <a href="index.html">完整實用版</a></li>
+      <li>租車詳情 → <a href="nissan.html">日產租車預約</a> · 標識 → <a href="road-signs.html">交通標識</a> · <a href="traffic-lights.html">交通燈</a></li>
+    </ul>
+  </div>
+
+</main>
+
+<button type="button" class="topbtn" id="topbtn" aria-label="回到頂部" title="回到頂部">↑</button>
+
+<footer class="ft">
+  <p>東京自駕遊 2026.10.14–10.22 · Tracy一家</p>
+  <p style="margin-top:6px"><a href="index.html">完整實用版</a> · <a href="https://github.com/tracysaiagent/tokyo-drive-2026">GitHub</a></p>
+</footer>
+
+<script>
+(function(){
+var chips=document.getElementById("chips");
+var c=document.querySelectorAll("#chips .cp"),p=[],lockUntil=0,visible=new Set();
+c.forEach(function(a){var i=(a.getAttribute("href")||"").slice(1),e=document.getElementById(i);if(e)p.push({c:a,e:e});});
+function setOn(x){c.forEach(function(y){y.classList.remove("on")});if(x)x.classList.add("on")}
+function navH(){var n=document.querySelector(".nav");return n?Math.ceil(n.getBoundingClientRect().height)+6:72}
+function scrollToEl(el){
+  var y=el.getBoundingClientRect().top+window.pageYOffset-navH();
+  window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
+}
+function centerChip(a){
+  if(!chips||!a)return;
+  var left=a.offsetLeft-(chips.clientWidth-a.offsetWidth)/2;
+  if(typeof chips.scrollTo==="function")chips.scrollTo({left:Math.max(0,left),behavior:"smooth"});
+  else chips.scrollLeft=Math.max(0,left);
+}
+function syncActive(){
+  if(Date.now()<lockUntil)return;
+  var m=p.find(function(z){return visible.has(z.e)});
+  if(m)setOn(m.c);
+}
+function goChip(a){
+  var id=(a.getAttribute("href")||"").slice(1),el=document.getElementById(id);
+  if(!el)return;
+  lockUntil=Date.now()+1000;
+  setOn(a);centerChip(a);scrollToEl(el);
+  if(history.replaceState)try{history.replaceState(null,"","#"+id)}catch(e){}
+}
+if(chips)chips.addEventListener("click",function(ev){
+  var a=ev.target&&ev.target.closest?ev.target.closest("a.cp"):null;
+  if(!a||!chips.contains(a))return;
+  ev.preventDefault();goChip(a);
+});
+if("IntersectionObserver"in window){
+  var v=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting)visible.add(e.target);else visible.delete(e.target);});
+    syncActive();
+  },{rootMargin:"-72px 0px -55% 0px",threshold:0});
+  p.forEach(function(z){v.observe(z.e)});
+}
+})();
+(function(){
+var topBtn=document.getElementById("topbtn");
+if(!topBtn)return;
+function syncTop(){
+  var y=window.pageYOffset||document.documentElement.scrollTop||0;
+  if(y>280)topBtn.classList.add("show");else topBtn.classList.remove("show");
+}
+window.addEventListener("scroll",syncTop,{passive:true});
+syncTop();
+topBtn.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
+})();
+</script>
+</body>
+</html>
