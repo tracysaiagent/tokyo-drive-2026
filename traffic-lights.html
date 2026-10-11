@@ -36,9 +36,11 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 .viz-cap{font-size:13px;font-weight:700;color:#1c2430;margin-top:6px;line-height:1.35}
 .viz-sub{font-size:12px;color:#5c6570;margin-top:2px;line-height:1.35}
 .viz-pair{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:stretch;margin:10px 0 6px}
-.viz-pair .viz-card{flex:1 1 200px;max-width:260px}
+.viz-pair .viz-card{flex:1 1 200px;max-width:280px}
 .ref-note{font-size:12px;color:#5c6570;background:#f8f4ed;border:1px solid #e0d6c8;border-radius:8px;padding:8px 10px;margin:8px 0 0;line-height:1.45}
 .ref-note a{font-weight:600}
+.layout-note{font-size:13px;background:#e0eef3;border:1px solid #6b9eaf;border-radius:9px;padding:10px 12px;margin:8px 0 10px;color:#1c2430;line-height:1.5}
+.combo-grid{display:flex;flex-direction:column;gap:10px;margin:10px 0}
 @keyframes tl-blink{0%,45%{opacity:1}50%,95%{opacity:.18}100%{opacity:1}}
 .flash-on{animation:tl-blink 1.1s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){.flash-on{animation:none;opacity:1}}
@@ -46,7 +48,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 <header class="hero">
 <div class="badge">TRAFFIC LIGHTS · 日本交通燈</div>
 <h1>日本交通燈規矩</h1>
-<p class="sub">紅黃綠 · 箭嘴 · 閃燈 · 行人燈 · 停止線 · 圖解速查</p>
+<p class="sub">橫型為主 · 紅黃綠 · 兩排箭嘴 · 閃燈 · 圖解速查</p>
 <a class="back" href="index.html">← 返回行程主頁</a>
 </header>
 <main class="w">
@@ -55,8 +57,10 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 <a class="s" href="road-signs.html">日本交通標識速查 →</a>
 </div>
 <nav class="toc" aria-label="本頁章節">
+<a href="#layout">橫／縱型</a>
 <a href="#colors">紅黃綠</a>
-<a href="#arrows">箭嘴燈</a>
+<a href="#tworow">兩排燈</a>
+<a href="#arrows">箭嘴組合</a>
 <a href="#flash">閃燈</a>
 <a href="#ped">行人燈</a>
 <a href="#redturn">紅燈轉彎</a>
@@ -64,39 +68,76 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 <a href="#cam">取締相機</a>
 </nav>
 
+<section class="cd" id="layout">
+<h2 class="h2" style="margin-top:0">日本車輛燈：橫型為主</h2>
+<p class="tip" style="margin-top:0;margin-bottom:8px">日本一般路口用<b>橫型</b>（水平）信號機。法規規定：橫型由左至右＝青（綠）→黃→紅；縱型由上至下＝紅→黃→青。下雪多或地方窄才常見縱型。</p>
+<div class="layout-note"><b>記法（橫型・最常見）</b>：面向燈時，<b>左邊綠 · 中間黃 · 右邊紅</b>。與香港／歐美「上紅下綠」的縱型習慣不同——東京自駕請先認橫型。</div>
+<div class="viz-row" role="img" aria-label="橫型主燈排列：左綠中黃右紅；旁附小縱型補充">
+<div class="viz-card wide">
+<svg viewBox="0 0 340 130" width="320" height="122" aria-hidden="true">
+<rect x="20" y="28" width="220" height="72" rx="14" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="70" cy="64" r="24" fill="#1e4a32"/>
+<circle cx="130" cy="64" r="24" fill="#3a3520"/>
+<circle cx="190" cy="64" r="24" fill="#3a2020"/>
+<circle cx="70" cy="64" r="22" fill="#2ecc71" stroke="#1a7a45" stroke-width="2"/>
+<circle cx="130" cy="64" r="20" fill="#5a5020" opacity=".5"/>
+<circle cx="190" cy="64" r="20" fill="#5a3030" opacity=".5"/>
+<text x="58" y="118" font-size="12" font-weight="700" fill="#2d6b3a">青／綠</text>
+<text x="118" y="118" font-size="12" font-weight="700" fill="#8a6d45">黃</text>
+<text x="178" y="118" font-size="12" font-weight="700" fill="#b85a28">紅</text>
+<text x="20" y="18" font-size="13" font-weight="700" fill="#1c2430">橫型（主要）← 左到右</text>
+<rect x="268" y="18" width="52" height="100" rx="10" fill="#2a2f38" stroke="#1c2430" stroke-width="1.5"/>
+<circle cx="294" cy="38" r="12" fill="#3a2020"/>
+<circle cx="294" cy="68" r="12" fill="#3a3520"/>
+<circle cx="294" cy="98" r="12" fill="#1e4a32"/>
+<circle cx="294" cy="98" r="10" fill="#2ecc71"/>
+<text x="262" y="128" font-size="10" fill="#5c6570">縱型·補充</text>
+</svg>
+<div class="viz-cap">橫型為主 · 縱型僅作補充（雪地／窄位）</div>
+<div class="viz-sub">縱型：上紅 · 中黃 · 下綠（與橫型燈色順序垂直對應）</div>
+</div>
+</div>
+<div class="bk">
+<table>
+<tr><th><span class="sign">橫型</span></th><td class="mean">最常見。左＝青（綠）、中＝黃、右＝紅。東京／關東多數路口是這個。</td></tr>
+<tr><th><span class="sign">縱型</span></th><td class="mean">補充：多雪地區或柱位窄時。上＝紅、中＝黃、下＝青。意思與橫型相同，只是排法不同。</td></tr>
+</table>
+</div>
+</section>
+
 <section class="cd" id="colors">
 <h2 class="h2" style="margin-top:0">紅／黃／綠（青）意思</h2>
-<p class="tip" style="margin-top:0;margin-bottom:8px">日本法規稱「青」，燈色實際偏綠。面向燈號的車輛／行人各自遵守。下圖為本站原創示意（非外部圖片）。</p>
-<div class="viz-row" role="img" aria-label="三種車輛號誌示意：綠可行、黃應停、紅必須停">
+<p class="tip" style="margin-top:0;margin-bottom:8px">日本法規稱「青」，燈色實際偏綠。面向燈號的車輛／行人各自遵守。下圖為本站原創橫型示意。</p>
+<div class="viz-row" role="img" aria-label="三種橫型車輛號誌：綠可行、黃應停、紅必須停">
 <div class="viz-card">
-<svg viewBox="0 0 100 200" width="88" height="176" aria-hidden="true">
-<rect x="18" y="8" width="64" height="168" rx="14" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
-<circle cx="50" cy="42" r="22" fill="#3a2020"/>
-<circle cx="50" cy="92" r="22" fill="#3a3520"/>
-<circle cx="50" cy="142" r="22" fill="#1e4a32"/>
-<circle cx="50" cy="142" r="20" fill="#2ecc71" stroke="#1a7a45" stroke-width="2"/>
+<svg viewBox="0 0 200 90" width="160" height="72" aria-hidden="true">
+<rect x="8" y="14" width="184" height="62" rx="12" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="48" cy="45" r="20" fill="#1e4a32"/>
+<circle cx="100" cy="45" r="18" fill="#3a3520"/>
+<circle cx="152" cy="45" r="18" fill="#3a2020"/>
+<circle cx="48" cy="45" r="18" fill="#2ecc71" stroke="#1a7a45" stroke-width="2"/>
 </svg>
 <div class="viz-cap"><span class="dot g"></span>綠（青）</div>
 <div class="viz-sub">可直行／左／右<br>仍須讓行人</div>
 </div>
 <div class="viz-card">
-<svg viewBox="0 0 100 200" width="88" height="176" aria-hidden="true">
-<rect x="18" y="8" width="64" height="168" rx="14" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
-<circle cx="50" cy="42" r="22" fill="#3a2020"/>
-<circle cx="50" cy="92" r="22" fill="#3a3520"/>
-<circle cx="50" cy="142" r="22" fill="#1e4a32"/>
-<circle cx="50" cy="92" r="20" fill="#f1c40f" stroke="#c49a0a" stroke-width="2"/>
+<svg viewBox="0 0 200 90" width="160" height="72" aria-hidden="true">
+<rect x="8" y="14" width="184" height="62" rx="12" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="48" cy="45" r="18" fill="#1e4a32"/>
+<circle cx="100" cy="45" r="20" fill="#3a3520"/>
+<circle cx="152" cy="45" r="18" fill="#3a2020"/>
+<circle cx="100" cy="45" r="18" fill="#f1c40f" stroke="#c49a0a" stroke-width="2"/>
 </svg>
 <div class="viz-cap"><span class="dot y"></span>黃＝應停</div>
 <div class="viz-sub">能停就停線前<br><span class="wn">勿加速衝</span></div>
 </div>
 <div class="viz-card">
-<svg viewBox="0 0 100 200" width="88" height="176" aria-hidden="true">
-<rect x="18" y="8" width="64" height="168" rx="14" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
-<circle cx="50" cy="42" r="22" fill="#3a2020"/>
-<circle cx="50" cy="92" r="22" fill="#3a3520"/>
-<circle cx="50" cy="142" r="22" fill="#1e4a32"/>
-<circle cx="50" cy="42" r="20" fill="#e74c3c" stroke="#a82e22" stroke-width="2"/>
+<svg viewBox="0 0 200 90" width="160" height="72" aria-hidden="true">
+<rect x="8" y="14" width="184" height="62" rx="12" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="48" cy="45" r="18" fill="#1e4a32"/>
+<circle cx="100" cy="45" r="18" fill="#3a3520"/>
+<circle cx="152" cy="45" r="20" fill="#3a2020"/>
+<circle cx="152" cy="45" r="18" fill="#e74c3c" stroke="#a82e22" stroke-width="2"/>
 </svg>
 <div class="viz-cap"><span class="dot r"></span>紅＝停</div>
 <div class="viz-sub">停在停止線後<br>等綠或綠箭嘴</div>
@@ -112,28 +153,136 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 <p class="tip"><span class="ok">黃燈＝停</span> <span class="wn">勿當「搶黃燈」</span> 與香港／部分地方習慣不同時，以日本規則為準。</p>
 </section>
 
-<section class="cd" id="arrows">
-<h2 class="h2" style="margin-top:0">箭嘴信號（尤其右折）</h2>
-<p class="tip" style="margin-top:0;margin-bottom:8px">主燈紅／黃時，若側方或下方出現<b>綠色箭嘴</b>，可依箭嘴方向前進。日本靠左行，右折常另設箭嘴。</p>
-<div class="viz-pair" role="img" aria-label="主燈紅燈搭配綠色右折箭嘴示意">
-<div class="viz-card wide">
-<svg viewBox="0 0 320 200" width="300" height="188" aria-hidden="true">
-<rect x="36" y="16" width="72" height="168" rx="14" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
-<circle cx="72" cy="48" r="20" fill="#e74c3c" stroke="#a82e22" stroke-width="2"/>
-<circle cx="72" cy="100" r="18" fill="#3a3520"/>
-<circle cx="72" cy="148" r="18" fill="#1e4a32"/>
-<rect x="120" y="70" width="100" height="70" rx="10" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
-<path d="M138 105 L178 105 L178 88 L210 112 L178 136 L178 119 L138 119 Z" fill="#2ecc71" stroke="#1a7a45" stroke-width="2"/>
-<rect x="240" y="118" width="52" height="28" rx="6" fill="#6b9eaf" stroke="#2a6f82" stroke-width="1.5"/>
-<circle cx="252" cy="150" r="7" fill="#1c2430"/><circle cx="280" cy="150" r="7" fill="#1c2430"/>
-<path d="M266 100 Q290 100 290 118" fill="none" stroke="#2ecc71" stroke-width="3" stroke-dasharray="4 3"/>
-<text x="250" y="92" font-size="12" font-weight="700" fill="#2d6b3a">可右折</text>
-<text x="48" y="188" font-size="11" fill="#5c6570">主燈紅</text>
-<text x="138" y="188" font-size="11" fill="#5c6570">綠箭嘴亮</text>
-</svg>
-<div class="viz-cap">紅燈＋綠右箭嘴 → 只可依箭嘴右轉</div>
-<div class="viz-sub">箭嘴未亮＝繼續停 · 不是美國「紅燈右轉」</div>
+<section class="cd" id="tworow">
+<h2 class="h2" style="margin-top:0">見到「兩排」燈時點解？</h2>
+<p class="tip" style="margin-top:0;margin-bottom:8px">長者常問：點解有<b>兩排</b>燈？上面一排亮紅又係咩意思？</p>
+<div class="layout-note">
+<b>簡單答：</b>「兩排」多數＝<b>上面主燈排</b>（圓形青／黃／紅）＋<b>下面箭嘴排</b>（綠箭嘴）。上面亮紅＝主燈要你停（直行同其他方向）；下面若亮綠箭嘴＝<b>只准跟箭嘴方向走</b>。唔係兩排都係一樣嘅紅黃綠。
 </div>
+<div class="viz-card wide" style="margin:10px 0" role="img" aria-label="兩排結構：上排主燈紅黃綠，下排箭嘴">
+<svg viewBox="0 0 340 200" width="320" height="188" aria-hidden="true">
+<rect x="40" y="24" width="260" height="70" rx="12" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="95" cy="59" r="20" fill="#1e4a32"/>
+<circle cx="170" cy="59" r="20" fill="#3a3520"/>
+<circle cx="245" cy="59" r="22" fill="#3a2020"/>
+<circle cx="245" cy="59" r="20" fill="#e74c3c" stroke="#a82e22" stroke-width="2"/>
+<text x="40" y="16" font-size="12" font-weight="700" fill="#b85a28">① 上排＝主燈（青·黃·紅）← 呢排亮紅＝停</text>
+<rect x="40" y="110" width="260" height="56" rx="10" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<path d="M115 138 L95 138 L95 128 L75 138 L95 148 L95 138" fill="#1a5a35" opacity=".35"/>
+<path d="M170 148 L170 128 L162 136 M170 128 L178 136" fill="none" stroke="#1a5a35" stroke-width="3" opacity=".35" stroke-linecap="round"/>
+<path d="M225 138 L245 138 L245 128 L265 138 L245 148 L245 138" fill="#2ecc71" stroke="#1a7a45" stroke-width="1.5"/>
+<text x="40" y="186" font-size="12" font-weight="700" fill="#2d6b3a">② 下排＝箭嘴排（← ↑ →）· 綠箭亮＝可跟箭走</text>
+<text x="72" y="98" font-size="10" fill="#5c6570">青位</text>
+<text x="152" y="98" font-size="10" fill="#5c6570">黃位</text>
+<text x="222" y="98" font-size="10" fill="#5c6570">紅位↓右箭</text>
+</svg>
+<div class="viz-cap">兩排結構示意（警察廳通達：箭嘴裝在主燈下方）</div>
+<div class="viz-sub">左折箭在青燈下方 · 直進箭在黃燈下方 · 右折箭在紅燈下方</div>
+</div>
+<div class="bk">
+<div class="lb">上排亮紅＝乜意思？</div>
+<p class="mean" style="margin-bottom:8px"><b>上排（主燈）紅</b>＝你面向呢個燈嘅車輛，原則上要喺停止線前<b>停</b>。若下排／側邊有綠箭嘴同時亮，就例外：<b>只可以跟箭嘴方向</b>前進（其他方向仍然當紅燈停）。</p>
+<table>
+<tr><th><span class="sign">只上排紅</span></th><td class="mean">箭嘴未亮 → 全部方向停，等綠或等箭嘴。</td></tr>
+<tr><th><span class="sign">上紅＋下綠箭</span></th><td class="mean">紅＝其他方向停；綠箭＝<b>只准箭嘴方向</b>（常見右折）。直行唔准衝。</td></tr>
+<tr><th><span class="sign">上排全綠</span></th><td class="mean">一般可直行／左／右（仍讓行人、讓對向）。未必再亮箭嘴。</td></tr>
+</table>
+</div>
+<p class="tip"><span class="wn">長者重點</span>：見到上面紅，唔好當「可以跟香港習慣自己轉彎」——要睇下面有冇綠箭嘴，有先跟箭走。</p>
+</section>
+
+<section class="cd" id="arrows">
+<h2 class="h2" style="margin-top:0">常見組合圖解（司機速記）</h2>
+<p class="tip" style="margin-top:0;margin-bottom:8px">主燈紅／黃時，若出現綠色箭嘴，可依箭嘴方向前進（道路交通法施行令）。日本靠左行，右折常另設箭嘴。</p>
+<div class="combo-grid">
+
+<div class="viz-card wide" role="img" aria-label="組合一：只有紅燈">
+<svg viewBox="0 0 340 150" width="320" height="140" aria-hidden="true">
+<rect x="50" y="20" width="240" height="58" rx="10" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="100" cy="49" r="16" fill="#1e4a32"/>
+<circle cx="170" cy="49" r="16" fill="#3a3520"/>
+<circle cx="240" cy="49" r="18" fill="#e74c3c" stroke="#a82e22" stroke-width="2"/>
+<rect x="50" y="88" width="240" height="40" rx="8" fill="#2a2f38" stroke="#1c2430" stroke-width="1.5"/>
+<path d="M100 108 L85 108 L85 100 L70 108 L85 116 L85 108" fill="#1a3a28" opacity=".4"/>
+<path d="M170 118 L170 98 L163 105 M170 98 L177 105" fill="none" stroke="#1a3a28" stroke-width="2.5" opacity=".4"/>
+<path d="M210 108 L230 108 L230 100 L245 108 L230 116 L230 108" fill="#1a3a28" opacity=".4"/>
+<text x="50" y="145" font-size="12" fill="#5c6570">下排箭嘴全暗</text>
+</svg>
+<div class="viz-cap"><span class="dot r"></span>只有紅 → 停</div>
+<div class="viz-sub">停止線後等候 · 直行／左／右都唔好郁</div>
+</div>
+
+<div class="viz-card wide" role="img" aria-label="組合二：紅燈加綠色右折箭嘴">
+<svg viewBox="0 0 340 170" width="320" height="160" aria-hidden="true">
+<rect x="30" y="16" width="200" height="56" rx="10" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="70" cy="44" r="14" fill="#1e4a32"/>
+<circle cx="120" cy="44" r="14" fill="#3a3520"/>
+<circle cx="175" cy="44" r="16" fill="#e74c3c" stroke="#a82e22" stroke-width="2"/>
+<rect x="30" y="82" width="200" height="44" rx="8" fill="#2a2f38" stroke="#1c2430" stroke-width="1.5"/>
+<path d="M155 104 L175 104 L175 96 L195 104 L175 112 L175 104" fill="#2ecc71" stroke="#1a7a45" stroke-width="1.5"/>
+<rect x="250" y="100" width="48" height="26" rx="5" fill="#6b9eaf" stroke="#2a6f82" stroke-width="1.5"/>
+<circle cx="262" cy="130" r="6" fill="#1c2430"/><circle cx="286" cy="130" r="6" fill="#1c2430"/>
+<path d="M274 70 Q300 70 300 100" fill="none" stroke="#2ecc71" stroke-width="3" stroke-dasharray="4 3"/>
+<text x="248" y="62" font-size="12" font-weight="700" fill="#2d6b3a">可右折</text>
+<text x="30" y="148" font-size="11" fill="#b85a28">上排紅＝其他方向停</text>
+<text x="30" y="164" font-size="11" fill="#2d6b3a">下排綠→＝只准右轉</text>
+</svg>
+<div class="viz-cap">紅＋綠右箭嘴 → 只可依箭嘴右轉</div>
+<div class="viz-sub">直行／左轉仍然停 · 唔係美國「紅燈右轉」</div>
+</div>
+
+<div class="viz-card wide" role="img" aria-label="組合三：紅燈加綠色左折箭嘴">
+<svg viewBox="0 0 340 130" width="320" height="120" aria-hidden="true">
+<rect x="50" y="12" width="240" height="52" rx="10" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="100" cy="38" r="14" fill="#1e4a32"/>
+<circle cx="170" cy="38" r="14" fill="#3a3520"/>
+<circle cx="240" cy="38" r="16" fill="#e74c3c" stroke="#a82e22" stroke-width="2"/>
+<rect x="50" y="74" width="240" height="40" rx="8" fill="#2a2f38" stroke="#1c2430" stroke-width="1.5"/>
+<path d="M115 94 L95 94 L95 86 L75 94 L95 102 L95 94" fill="#2ecc71" stroke="#1a7a45" stroke-width="1.5"/>
+<path d="M170 104 L170 84" fill="none" stroke="#1a3a28" stroke-width="2.5" opacity=".35"/>
+<path d="M210 94 L230 94 L230 86 L245 94 L230 102 L230 94" fill="#1a3a28" opacity=".35"/>
+</svg>
+<div class="viz-cap">紅＋綠左箭嘴 → 只可左轉</div>
+<div class="viz-sub">直行／右折繼續停 · 轉彎仍讓斑馬線行人</div>
+</div>
+
+<div class="viz-card wide" role="img" aria-label="組合四：紅燈加直進箭嘴">
+<svg viewBox="0 0 340 130" width="320" height="120" aria-hidden="true">
+<rect x="50" y="12" width="240" height="52" rx="10" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="100" cy="38" r="14" fill="#1e4a32"/>
+<circle cx="170" cy="38" r="14" fill="#3a3520"/>
+<circle cx="240" cy="38" r="16" fill="#e74c3c" stroke="#a82e22" stroke-width="2"/>
+<rect x="50" y="74" width="240" height="40" rx="8" fill="#2a2f38" stroke="#1c2430" stroke-width="1.5"/>
+<path d="M100 94 L85 94" fill="none" stroke="#1a3a28" stroke-width="2.5" opacity=".35"/>
+<path d="M170 104 L170 84 L162 92 M170 84 L178 92" fill="none" stroke="#2ecc71" stroke-width="3" stroke-linecap="round"/>
+<path d="M210 94 L230 94" fill="none" stroke="#1a3a28" stroke-width="2.5" opacity=".35"/>
+</svg>
+<div class="viz-cap">紅＋綠直箭（↑）→ 只可直行</div>
+<div class="viz-sub">部分路口會紅＋↑＋→ 同時亮＝可直行或右折</div>
+</div>
+
+<div class="viz-card wide" role="img" aria-label="組合五：綠燈">
+<svg viewBox="0 0 340 90" width="320" height="84" aria-hidden="true">
+<rect x="50" y="14" width="240" height="58" rx="10" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="100" cy="43" r="18" fill="#2ecc71" stroke="#1a7a45" stroke-width="2"/>
+<circle cx="170" cy="43" r="16" fill="#3a3520"/>
+<circle cx="240" cy="43" r="16" fill="#3a2020"/>
+</svg>
+<div class="viz-cap"><span class="dot g"></span>綠 → 可走（小心）</div>
+<div class="viz-sub">直行／左／右通常都得 · 仍讓行人、讓對向直進</div>
+</div>
+
+<div class="viz-card wide" role="img" aria-label="組合六：黃燈">
+<svg viewBox="0 0 340 90" width="320" height="84" aria-hidden="true">
+<rect x="50" y="14" width="240" height="58" rx="10" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="100" cy="43" r="16" fill="#1e4a32"/>
+<circle cx="170" cy="43" r="18" fill="#f1c40f" stroke="#c49a0a" stroke-width="2"/>
+<circle cx="240" cy="43" r="16" fill="#3a2020"/>
+</svg>
+<div class="viz-cap"><span class="dot y"></span>黃 → 應停（除非刹唔切）</div>
+<div class="viz-sub">能停就停線前 · <span class="wn">唔好加速衝黃燈</span></div>
+</div>
+
 </div>
 <div class="bk">
 <div class="lb">重點 · 日本靠左行</div>
@@ -141,7 +290,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 </div>
 <div class="bk">
 <table>
-<tr><th><span class="sign">綠箭嘴</span></th><td class="mean">即使主燈是黃或紅，也可依箭嘴方向前進（直進／左／右）。右折箭嘴亮時，通常才可安全右轉。</td></tr>
+<tr><th><span class="sign">綠箭嘴</span></th><td class="mean">即使主燈是黃或紅，也可依箭嘴方向前進（直進／左／右）。右折箭嘴亮時，通常才可安全右轉。右向綠箭亦可 U 轉（轉回），除非有標誌禁止。</td></tr>
 <tr><th><span class="sign">右折箭嘴</span></th><td class="mean">常見在主燈轉紅後才亮。箭嘴未亮時：紅燈＝停著等，<b>不要學美國「紅燈右轉」</b>。</td></tr>
 <tr><th><span class="sign">黃箭嘴</span></th><td class="mean">路面電車用；一般汽車<b>不可</b>跟黃箭嘴走，只看自己的圓形燈或綠箭嘴。</td></tr>
 <tr><th><span class="sign">已在路口內</span></th><td class="mean">若綠燈時已進入路口開始轉彎，燈變紅後可完成轉彎，但不可阻礙已獲綠燈的車流；仍須讓行人。</td></tr>
@@ -153,25 +302,25 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 <section class="cd" id="flash">
 <h2 class="h2" style="margin-top:0">閃黃／閃紅</h2>
 <p class="tip" style="margin-top:0;margin-bottom:8px">深夜或車少路口常見。兩種完全不同——閃紅要先完全停，閃黃可小心通過。</p>
-<div class="viz-row" role="img" aria-label="閃黃注意通行與閃紅一時停止示意">
+<div class="viz-row" role="img" aria-label="閃黃注意通行與閃紅一時停止示意（橫型）">
 <div class="viz-card">
-<svg viewBox="0 0 100 200" width="88" height="176" aria-hidden="true">
-<rect x="18" y="8" width="64" height="168" rx="14" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
-<circle cx="50" cy="42" r="18" fill="#3a2020"/>
-<circle cx="50" cy="92" r="22" fill="#3a3520"/>
-<circle cx="50" cy="142" r="18" fill="#1e4a32"/>
-<circle class="flash-on" cx="50" cy="92" r="20" fill="#f1c40f" stroke="#c49a0a" stroke-width="2"/>
+<svg viewBox="0 0 200 90" width="160" height="72" aria-hidden="true">
+<rect x="8" y="14" width="184" height="62" rx="12" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="48" cy="45" r="16" fill="#1e4a32"/>
+<circle cx="100" cy="45" r="20" fill="#3a3520"/>
+<circle cx="152" cy="45" r="16" fill="#3a2020"/>
+<circle class="flash-on" cx="100" cy="45" r="18" fill="#f1c40f" stroke="#c49a0a" stroke-width="2"/>
 </svg>
 <div class="viz-cap"><span class="dot y"></span>閃黃</div>
 <div class="viz-sub">減速 · 確認左右<br>可小心通過</div>
 </div>
 <div class="viz-card">
-<svg viewBox="0 0 100 200" width="88" height="176" aria-hidden="true">
-<rect x="18" y="8" width="64" height="168" rx="14" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
-<circle cx="50" cy="42" r="22" fill="#3a2020"/>
-<circle cx="50" cy="92" r="18" fill="#3a3520"/>
-<circle cx="50" cy="142" r="18" fill="#1e4a32"/>
-<circle class="flash-on" cx="50" cy="42" r="20" fill="#e74c3c" stroke="#a82e22" stroke-width="2"/>
+<svg viewBox="0 0 200 90" width="160" height="72" aria-hidden="true">
+<rect x="8" y="14" width="184" height="62" rx="12" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="48" cy="45" r="16" fill="#1e4a32"/>
+<circle cx="100" cy="45" r="16" fill="#3a3520"/>
+<circle cx="152" cy="45" r="20" fill="#3a2020"/>
+<circle class="flash-on" cx="152" cy="45" r="18" fill="#e74c3c" stroke="#a82e22" stroke-width="2"/>
 </svg>
 <div class="viz-cap"><span class="dot r"></span>閃紅</div>
 <div class="viz-sub"><b>一時停止</b>後再走<br>＝當「止まれ」</div>
@@ -185,10 +334,11 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 </div>
 <p class="tip">以當下燈號為準，勿假設「沒車就能衝」。</p>
 </section>
+
 <section class="cd" id="ped">
 <h2 class="h2" style="margin-top:0">行人燈 vs 車輛燈</h2>
 <p class="tip" style="margin-top:0;margin-bottom:8px">司機跟<b>車輛用燈</b>；行人綠時你可能仍是紅。轉彎一律讓斑馬線行人／單車。</p>
-<div class="viz-row" role="img" aria-label="行人綠燈與車輛紅燈對照示意">
+<div class="viz-row" role="img" aria-label="行人綠燈與車輛橫型紅燈對照示意">
 <div class="viz-card">
 <svg viewBox="0 0 90 160" width="80" height="142" aria-hidden="true">
 <rect x="14" y="8" width="62" height="130" rx="12" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
@@ -201,11 +351,11 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 <div class="viz-sub">只管行人（及專用單車）</div>
 </div>
 <div class="viz-card">
-<svg viewBox="0 0 100 160" width="88" height="142" aria-hidden="true">
-<rect x="22" y="8" width="56" height="130" rx="12" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
-<circle cx="50" cy="36" r="16" fill="#e74c3c" stroke="#a82e22" stroke-width="2"/>
-<circle cx="50" cy="74" r="14" fill="#3a3520"/>
-<circle cx="50" cy="110" r="14" fill="#1e4a32"/>
+<svg viewBox="0 0 200 90" width="160" height="72" aria-hidden="true">
+<rect x="8" y="14" width="184" height="62" rx="12" fill="#2a2f38" stroke="#1c2430" stroke-width="2"/>
+<circle cx="48" cy="45" r="16" fill="#1e4a32"/>
+<circle cx="100" cy="45" r="16" fill="#3a3520"/>
+<circle cx="152" cy="45" r="18" fill="#e74c3c" stroke="#a82e22" stroke-width="2"/>
 </svg>
 <div class="viz-cap">車輛燈 · 仍可能紅</div>
 <div class="viz-sub">司機看這個，別只看行人燈</div>
@@ -232,9 +382,10 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 <rect x="168" y="78" width="10" height="74" fill="#f5f1ea" opacity=".9"/>
 <rect x="186" y="78" width="10" height="74" fill="#f5f1ea" opacity=".9"/>
 <rect x="204" y="78" width="10" height="74" fill="#f5f1ea" opacity=".9"/>
-<rect x="230" y="8" width="48" height="58" rx="8" fill="#2a2f38" stroke="#1c2430" stroke-width="1.5"/>
-<circle cx="254" cy="26" r="10" fill="#e74c3c"/>
-<circle cx="254" cy="44" r="7" fill="#3a3520"/>
+<rect x="210" y="12" width="110" height="42" rx="8" fill="#2a2f38" stroke="#1c2430" stroke-width="1.5"/>
+<circle cx="235" cy="33" r="8" fill="#1e4a32"/>
+<circle cx="265" cy="33" r="8" fill="#3a3520"/>
+<circle cx="295" cy="33" r="10" fill="#e74c3c"/>
 <rect x="70" y="95" width="64" height="32" rx="6" fill="#c4a882" stroke="#8a6d45" stroke-width="1.5"/>
 <circle cx="84" cy="132" r="8" fill="#1c2430"/><circle cx="120" cy="132" r="8" fill="#1c2430"/>
 <path d="M280 100 L320 100 L320 88 L338 108 L320 128 L320 116 L280 116 Z" fill="#bbb" opacity=".5"/>
@@ -255,6 +406,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 </div>
 <p class="tip"><span class="wn">紅燈＋想轉彎＝先停著</span> 等綠或箭嘴，最省事、也最安全。</p>
 </section>
+
 <section class="cd" id="stopline">
 <h2 class="h2" style="margin-top:0">停止線 · 「止まれ」與燈號</h2>
 <div class="viz-card wide" style="margin:10px 0" role="img" aria-label="車輛停在白色停止線後方示意">
@@ -280,6 +432,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 </div>
 <p class="tip">詳細標誌圖見 <a href="road-signs.html">交通標識速查</a> · <a href="https://www2.tocoo.jp/cn/howto/road_sign" target="_blank" rel="noopener">ToCoo! 道路標誌</a>。</p>
 </section>
+
 <section class="cd" id="cam">
 <h2 class="h2" style="margin-top:0">取締相機（簡記）</h2>
 <div class="bk">
@@ -287,9 +440,10 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;p
 <p class="tip" style="margin-top:8px">本行程以守燈、守線、讓行人為主即可；勿為趕時間闖燈。</p>
 </div>
 </section>
+
 <section class="cd">
 <h2 class="h2" style="margin-top:0">來源 · 相關頁</h2>
-<p class="tip" style="margin:0">燈號意思摘要參考 <a href="https://english.jaf.or.jp/driving-in-japan/traffic-rules" target="_blank" rel="noopener">JAF《Traffic Rules in Japan》</a>（日本汽車聯盟）。法規原文見 <a href="https://laws.e-gov.go.jp/document?lawid=335CO0000000270_20240401_506CO0000000043" target="_blank" rel="noopener">道路交通法施行令（e-Gov）</a>。本頁為行程速查，非完整法規。</p>
+<p class="tip" style="margin:0">燈號意思摘要參考 <a href="https://english.jaf.or.jp/driving-in-japan/traffic-rules" target="_blank" rel="noopener">JAF《Traffic Rules in Japan》</a>（日本汽車聯盟）。法規原文見 <a href="https://laws.e-gov.go.jp/document?lawid=335CO0000000270_20240401_506CO0000000043" target="_blank" rel="noopener">道路交通法施行令（e-Gov）</a>。排列與箭嘴配置參考警察廳通達及 <a href="https://www.npa.go.jp/english/bureau/traffic/traffic-light_english.pdf" target="_blank" rel="noopener">NPA Traffic Lights（英文 PDF）</a>。本頁為行程速查，非完整法規。</p>
 <p class="ref-note">參考：<a href="https://rental-car-tips.jp/tw/rules/" target="_blank" rel="noopener">日本租車駕駛規則</a>（紅燈須停、箭嘴可依方向行進、行人優先等觀念對照）。圖解為本站原創 SVG／CSS，未使用該站圖片檔。</p>
 <div class="cta" style="margin-top:10px">
 <a class="p" href="https://english.jaf.or.jp/driving-in-japan/traffic-rules" target="_blank" rel="noopener">開啟 JAF 交通規則</a>
