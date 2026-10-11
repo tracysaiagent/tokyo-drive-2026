@@ -5,14 +5,24 @@ Tracy 一家四人（含兩位長者）東京／富士／箱根／伊豆自駕�
 
 ## 預覽連結（iPhone Safari 請用這些）
 
+### 剪貼簿行程摘要（scrapbook · `itinerary.html`）
+
+SHA-pinned（避開 CDN 快取，必看這支）：  
+https://raw.githack.com/tracysaiagent/tokyo-drive-2026/72d72e83926af2f51a95a8ce42e3fd5356294d3c/itinerary.html
+
+main 分支（可能被 raw.githack 快取）：  
+https://raw.githack.com/tracysaiagent/tokyo-drive-2026/main/itinerary.html
+
+### 完整實用版（地圖／Mapcode／駕駛 · `index.html`）
+
 1. **raw.githack（建議）**  
-   https://raw.githack.com/tracyng95/tokyo-drive-2026/main/index.html
+   https://raw.githack.com/tracysaiagent/tokyo-drive-2026/main/index.html
 
 2. **jsDelivr CDN**  
-   https://cdn.jsdelivr.net/gh/tracyng95/tokyo-drive-2026@main/index.html
+   https://cdn.jsdelivr.net/gh/tracysaiagent/tokyo-drive-2026@main/index.html
 
 3. **htmlpreview**  
-   https://htmlpreview.github.io/?https://github.com/tracyng95/tokyo-drive-2026/blob/main/index.html
+   https://htmlpreview.github.io/?https://github.com/tracysaiagent/tokyo-drive-2026/blob/main/index.html
 
 ## 加至主畫面（Safari）
 
@@ -22,7 +32,8 @@ Tracy 一家四人（含兩位長者）東京／富士／箱根／伊豆自駕�
 
 | 檔案 | 說明 |
 |------|------|
-| `index.html` | **完整自包含單頁**（CSS + JS 內嵌，含行程與 Mapcode） |
+| `itinerary.html` | **剪貼簿風格行程摘要**（每日天氣、照片、地圖、時間軸） |
+| `index.html` | **完整自包含實用版**（CSS + JS 內嵌，含行程與 Mapcode） |
 | `app.js` | 空 stub，避免舊連結 404 |
 | `README.md` | 本說明 |
 
@@ -58,4 +69,4 @@ Tracy 一家四人（含兩位長者）東京／富士／箱根／伊豆自駕�
 - **10/20–21** 東京購物與美食
 - **10/22** 回程 UO871
 
-Repo: https://github.com/tracyng95/tokyo-drive-2026
+Repo: https://github.com/tracysaiagent/tokyo-drive-2026
