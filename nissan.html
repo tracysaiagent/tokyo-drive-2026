@@ -26,6 +26,11 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;p
 .ft{text-align:center;padding:16px;color:#a8b0bc;font-size:10px}
 .tip{font-size:12px;color:#a8b0bc;margin-top:6px;line-height:1.45}
 .time{font-size:16px;font-weight:700;color:#fff;margin:2px 0}
+.topbtn{position:fixed;right:12px;bottom:18px;z-index:60;width:48px;height:48px;border-radius:50%;border:1px solid #c4a882;background:rgba(26,35,50,.94);color:#c4a882;font:700 20px/1 sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.45);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .2s,visibility .2s,transform .2s;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.topbtn.show{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.topbtn:hover,.topbtn:focus-visible{background:rgba(196,168,130,.22);outline:none}
+.topbtn:focus-visible{box-shadow:0 0 0 2px #0f1419,0 0 0 4px #c4a882}
+@media (max-width:400px){.topbtn{right:10px;bottom:14px;width:46px;height:46px}}
 </style></head><body>
 <header class="hero">
 <div style="font-size:10px;color:#c4a882;background:rgba(196,168,130,.15);display:inline-block;padding:3px 7px;border-radius:999px;margin-bottom:6px">NISSAN RENT-A-CAR</div>
@@ -135,6 +140,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;p
 </section>
 
 </main>
+<button type="button" class="topbtn" id="topbtn" aria-label="回到頂部" title="回到頂部">↑</button>
 <footer class="ft"><p>東京自駕遊 2026.10.14–10.22 · Tracy一家</p>
 <p style="margin-top:3px"><a href="index.html">行程主頁</a> · <a href="https://github.com/tracysaiagent/tokyo-drive-2026">GitHub</a></p></footer>
 <script>
@@ -146,6 +152,22 @@ document.querySelectorAll("button.b[data-m]").forEach(function(b){
     function f(){var i=document.createElement("input");i.value=t;document.body.appendChild(i);i.select();try{document.execCommand("copy")}catch(e){}document.body.removeChild(i);d()}
     if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(d).catch(f);else f();
   });
+});
+})();
+</script>
+<script>
+(function(){
+var topBtn=document.getElementById("topbtn");
+if(!topBtn)return;
+var thr=280;
+function syncTop(){
+  var y=window.pageYOffset||document.documentElement.scrollTop||0;
+  if(y>thr)topBtn.classList.add("show");else topBtn.classList.remove("show");
+}
+window.addEventListener("scroll",syncTop,{passive:true});
+syncTop();
+topBtn.addEventListener("click",function(){
+  window.scrollTo({top:0,behavior:"smooth"});
 });
 })();
 </script></body></html>

@@ -19,6 +19,11 @@ ul{padding-left:1.2em;margin:4px 0;font-size:13px}li{margin:3px 0}
 .gl{font-size:12px;margin:3px 0}.gl a{font-weight:600}
 .tm{color:#c4a882;font-weight:600;font-size:11px;white-space:nowrap}
 .rf{display:flex;flex-direction:column;gap:6px}.rf a{display:block;padding:7px 9px;background:#1a2332;border:1px solid rgba(240,235,227,.08);border-radius:7px;color:#f0ebe3;font-size:12px;font-weight:600}.rf a span{display:block;color:#a8b0bc;font-size:10px;font-weight:500;margin-top:2px}
+.topbtn{position:fixed;right:12px;bottom:18px;z-index:60;width:48px;height:48px;border-radius:50%;border:1px solid #c4a882;background:rgba(26,35,50,.94);color:#c4a882;font:700 20px/1 sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.45);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .2s,visibility .2s,transform .2s;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.topbtn.show{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.topbtn:hover,.topbtn:focus-visible{background:rgba(196,168,130,.22);outline:none}
+.topbtn:focus-visible{box-shadow:0 0 0 2px #0f1419,0 0 0 4px #c4a882}
+@media (max-width:400px){.topbtn{right:10px;bottom:14px;width:46px;height:46px}}
 </style></head><body><header class="hero"><div style="font-size:10px;color:#c4a882;background:rgba(196,168,130,.15);display:inline-block;padding:3px 7px;border-radius:999px;margin-bottom:6px">FUJI · HAKONE · KAMAKURA · TOKYO</div><h1>東京自駕遊｜10.14–10.22</h1><p class="sub">2026年10月 · 四人自駕 · 繁體中文</p></header><nav class="nav" aria-label="每日導覽"><div class="ns" id="chips"><a class="cp on" href="#d14">10/14<span>三</span></a><a class="cp" href="#d15">10/15<span>四</span></a><a class="cp" href="#d16">10/16<span>五</span></a><a class="cp" href="#d17">10/17<span>六</span></a><a class="cp" href="#d18">10/18<span>日</span></a><a class="cp" href="#d19">10/19<span>一</span></a><a class="cp" href="#d20">10/20<span>二</span></a><a class="cp" href="#d21">10/21<span>三</span></a><a class="cp" href="#d22">10/22<span>四</span></a></div></nav><main class="w"><div class="jp"><a href="#ov">總覽</a><a href="nissan.html" style="background:rgba(196,168,130,.18);border-color:#c4a882;color:#c4a882">日產租車</a><a href="#drv">駕駛速查</a><a href="road-signs.html">日本交通標識</a><a href="#eld">長者提示</a><a href="#ref">常用連結</a></div><h2 class="h2" id="ov">行程總覽</h2><p style="color:#a8b0bc;font-size:12px;margin-bottom:8px">10/14成田取車→山中湖Shizuku→10/15三湖（山中湖・忍野・河口湖短停）→10/16 Outlet/Clad→10/17 Blisstia→10/18鎌倉JR東日本大都會大飯店鎌倉→10/19半日鎌倉後新宿還車→10/20–21東京→10/22 UO871</p>
 
 <article class="cd" id="d14"><div class="dh"><span class="d">10/14</span><span class="wk">三</span><span class="th">成田取車→山中湖</span></div><div class="dv"><h4>開車重點</h4><div class="rt">成田 <span class="a">→</span> Shizuku</div>
@@ -158,6 +163,7 @@ ul{padding-left:1.2em;margin:4px 0;font-size:13px}li{margin:3px 0}
 <a href="https://gracery.com/shinjuku/" target="_blank" rel="noopener">Hotel Gracery 新宿 官方<span>歌舞伎町住宿</span></a>
 </div><p style="font-size:10px;color:#a8b0bc;margin-top:6px">車程標「約」為 10 月平日估計，實況請以 Google 地圖為準。</p></div>
 </main>
+<button type="button" class="topbtn" id="topbtn" aria-label="回到頂部" title="回到頂部">↑</button>
 <footer class="ft"><p>東京自駕遊 2026.10.14–10.22 · Tracy一家</p><p style="margin-top:3px"><a href="https://github.com/tracysaiagent/tokyo-drive-2026">GitHub</a> · <a href="https://raw.githack.com/tracysaiagent/tokyo-drive-2026/main/index.html">預覽</a></p></footer>
 <script>
 (function(){
@@ -207,5 +213,21 @@ if("IntersectionObserver"in window){
 document.querySelectorAll(".mc button.b").forEach(function(b){b.addEventListener("click",function(){var t=b.getAttribute("data-m")||"";function d(){b.textContent="已複製";setTimeout(function(){b.textContent="複製"},800)}
 if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(d).catch(f);else f();
 function f(){var i=document.createElement("input");i.value=t;document.body.appendChild(i);i.select();try{document.execCommand("copy")}catch(e){}document.body.removeChild(i);d()}})});
+})();
+</script>
+<script>
+(function(){
+var topBtn=document.getElementById("topbtn");
+if(!topBtn)return;
+var thr=280;
+function syncTop(){
+  var y=window.pageYOffset||document.documentElement.scrollTop||0;
+  if(y>thr)topBtn.classList.add("show");else topBtn.classList.remove("show");
+}
+window.addEventListener("scroll",syncTop,{passive:true});
+syncTop();
+topBtn.addEventListener("click",function(){
+  window.scrollTo({top:0,behavior:"smooth"});
+});
 })();
 </script></body></html>
