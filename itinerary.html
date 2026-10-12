@@ -247,9 +247,74 @@ img{max-width:100%;display:block}
   transition:opacity .2s,visibility .2s,transform .2s;cursor:pointer;
 }
 .topbtn.show{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+@page{size:A5 portrait;margin:10mm}
 @media print{
-  .nav,.topbtn,.back-link{display:none!important}
-  body{background:#fff}.day{break-inside:avoid;box-shadow:none}.map-box{display:none}
+  .nav,.topbtn,.back-link,.hero-deco{display:none!important}
+  html{scroll-padding-top:0}
+  body{
+    font:12.5pt/1.55 "Noto Sans CJK TC","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--beige)!important;
+    background-image:none!important;
+    padding-bottom:0;color:var(--ink);
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  a{color:var(--moss)}
+  .hero{
+    min-height:0;padding:14px 10px 10px;
+    background:#2a2622!important;
+    background-image:linear-gradient(180deg,rgba(30,26,22,.45),rgba(243,232,216,.97))!important;
+  }
+  .hero h1{font-size:24pt;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+  .hero .script{font-size:14pt}
+  .hero .dates{font-size:10.5pt}.hero .tag{font-size:8.5pt}
+  .circles{height:72px;margin:8px auto 2px}
+  .circ{width:58px;height:58px;border-width:3px}
+  .circ.c2{width:68px;height:68px;margin:0 -6px}
+  .chip{font-size:10pt;padding:5px 10px;box-shadow:none}
+  .wrap{max-width:none;padding:10px 0 4px}
+  .info-grid{grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+  .info-card{box-shadow:none;padding:8px 10px;border-radius:12px}
+  .info-card .lbl{font-size:8pt}.info-card .val{font-size:10.5pt}.info-card .sub{font-size:8.5pt}
+  .route-strip{box-shadow:none;margin-bottom:10px;padding:10px}
+  .route-strip h2{font-size:10pt}.route-flow .seg{font-size:9pt;padding:4px 8px}
+  .route-strip .note{font-size:10pt}
+  .day{break-inside:avoid;page-break-inside:avoid;box-shadow:none;margin-bottom:10px;border-radius:14px}
+  .washi{padding:8px 10px}
+  .day-pill{font-size:10pt}.day-date{font-size:11pt}
+  .day-body{padding:10px 10px 12px}
+  .day-theme{font-size:13pt;margin-bottom:8px}
+  .day-split{grid-template-columns:1fr;gap:10px}
+  .polaroid{box-shadow:none;padding:8px 8px 22px;transform:none}
+  .polaroid.r{transform:none}
+  .polaroid img{height:110px}
+  .polaroid.torn{clip-path:none;border-radius:4px;overflow:hidden}
+  .polaroid.torn img{height:110px;border-radius:2px}
+  .polaroid.circle-wrap .ring{width:min(100%,140px);border-width:4px}
+  .polaroid .cap{font-size:9pt}
+  /* iframes don't print — keep map link strip */
+  .map-box iframe{display:none!important}
+  .map-box{
+    margin-top:8px;background:var(--moss-soft);border:1.5px dashed var(--moss);
+    border-radius:10px;overflow:visible;
+  }
+  .map-cap{
+    font-size:10pt;padding:8px 10px;border-top:none;background:transparent;color:var(--ink);line-height:1.45;
+  }
+  .map-cap::before{content:"📍 地圖：";font-weight:800;color:var(--moss)}
+  .map-cap a{font-size:10pt;font-weight:700}
+  .tl{padding-left:18px}
+  .tl-when{font-size:9pt;padding:2px 8px}
+  .tl-txt{font-size:11pt;line-height:1.45}
+  .stay{font-size:10.5pt;padding:8px 10px;margin-top:8px}
+  .wx{font-size:10pt;padding:7px 10px;margin-bottom:8px;box-shadow:none}
+  .wx .n{font-size:8.5pt}
+  .deco-row{display:none}
+  .sec-h{font-size:11pt;margin:16px 0 8px}
+  .tips{font-size:11pt;box-shadow:none;padding:12px 14px;break-inside:avoid}
+  .tips li{margin:6px 0}
+  .sources{font-size:8.5pt;margin-top:12px;break-inside:avoid}
+  .sources h3,.sources a{font-size:8.5pt}
+  .ft{font-size:9pt;padding:14px 8px 0}
 }
 </style>
 </head>

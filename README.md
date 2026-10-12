@@ -73,3 +73,7 @@ https://raw.githack.com/tracysaiagent/tokyo-drive-2026/a7df0817a1615a34124b62768
 - **10/22** 回程 UO871
 
 Repo: https://github.com/tracysaiagent/tokyo-drive-2026
+
+## A5 紙本行程摘要（可印）
+- 檔案：[`tokyo-itinerary-A5.pdf`](tokyo-itinerary-A5.pdf)（A5 直向 · 剪貼簿風格 · 地圖改為連結文字）
+- 來源頁：[`itinerary.html`](itinerary.html)（含 `@media print` / `@page A5`）
