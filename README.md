@@ -8,7 +8,7 @@ Tracy 一家四人（含兩位長者）東京／富士／箱根／伊豆自駕�
 ### 剪貼簿行程摘要（scrapbook · `itinerary.html`）
 
 SHA-pinned（避開 CDN 快取，必看這支）：  
-https://raw.githack.com/tracysaiagent/tokyo-drive-2026/fd9d3883b436273fd1cc4866aafd2bb58621c127/itinerary.html
+https://raw.githack.com/tracysaiagent/tokyo-drive-2026/a7df0817a1615a34124b6276832fa226eae59358/itinerary.html
 
 main 分支（可能被 raw.githack 快取）：  
 https://raw.githack.com/tracysaiagent/tokyo-drive-2026/main/itinerary.html
@@ -16,7 +16,7 @@ https://raw.githack.com/tracysaiagent/tokyo-drive-2026/main/itinerary.html
 ### 完整實用版（地圖／Mapcode／駕駛 · `index.html`）
 
 SHA-pinned（避開 CDN 快取，必看這支）：  
-https://raw.githack.com/tracysaiagent/tokyo-drive-2026/fd9d3883b436273fd1cc4866aafd2bb58621c127/index.html
+https://raw.githack.com/tracysaiagent/tokyo-drive-2026/a7df0817a1615a34124b6276832fa226eae59358/index.html
 
 1. **raw.githack（建議）**  
    https://raw.githack.com/tracysaiagent/tokyo-drive-2026/main/index.html
