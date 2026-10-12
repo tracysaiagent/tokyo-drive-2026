@@ -77,3 +77,7 @@ Repo: https://github.com/tracysaiagent/tokyo-drive-2026
 ## A5 紙本行程摘要（可印）
 - 檔案：[`tokyo-itinerary-A5.pdf`](tokyo-itinerary-A5.pdf)（A5 直向 · 剪貼簿風格 · 地圖改為連結文字）
 - 來源頁：[`itinerary.html`](itinerary.html)（含 `@media print` / `@page A5`）
+
+## A4 紙本行程摘要（可印）
+- 檔案：[`tokyo-itinerary-A4.pdf`](tokyo-itinerary-A4.pdf)（A4 直向 · 與 A5 相同內容 · 剪貼簿風格 · 地圖改為連結文字）
+- 來源頁：[`itinerary.html`](itinerary.html)（列印時以 `@page A4` 產出；網頁預設仍為 A5）
